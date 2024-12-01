@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"liskov","l":"example_liskov.Circle"},{"p":"doc","l":"doc"},{"p":"liskov","l":"example_liskov"},{"p":"liskov","l":"example_liskov.Shape"},{"p":"console_work","l":"work_console"}];updateSearchResults();
