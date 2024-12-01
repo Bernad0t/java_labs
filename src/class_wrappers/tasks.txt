@@ -1,0 +1,90 @@
+Какие значения напечатает следующий код?
+
+int i1 = 128;
+Integer a1 = i1;
+Integer b1 = i1;
+System.out.println("a1==i1 " + (a1 == i1));
+System.out.println("b1==i1 " + (b1 == i1));
+System.out.println("a1==b1 " + (a1 == b1));
+System.out.println("a1.equals(i1) -> " + a1.equals(i1));
+System.out.println("b1.equals(i1) -> " + b1.equals(i1));
+System.out.println("a1.equals(b1) -> " + a1.equals(b1));
+
+int i2 = 127;
+Integer a2 = i2;
+Integer b2 = i2;
+System.out.println("a2==i2 " + (a2 == i2));
+System.out.println("b2==i2 " + (b2 == i2));
+System.out.println("a2==b2 " + (a2 == b2));
+System.out.println("a2.equals(i2) -> " + a2.equals(i2));
+System.out.println("b2.equals(i2) -> " + b2.equals(i2));
+System.out.println("a2.equals(b2) -> " + a2.equals(b2));
+Объясните полученный результат. Для чего используется класс IntegerCache?
+
+____________________________
+
+System.out.println("a1==i1 " + (a1 == i1));
+
+Вывод: true
+Объяснение: Integer (a1) будет преобразован к примитивному типу int (i1) при сравнении. В этом случае сравнение по значению: 128 == 128.
+
+System.out.println("b1==i1 " + (b1 == i1));
+
+Вывод: true
+Объяснение: Аналогично предыдущему - b1 (Integer) будет сравнен с i1 (int), и результат будет true.
+
+System.out.println("a1==b1 " + (a1 == b1));
+
+Вывод: false
+Объяснение: a1 и b1 оба создаются как новые экземпляры Integer. a1 и b1 - ссылки на экземпляры классов и ссылаются на разные объекты.
+
+
+System.out.println("a1.equals(i1) -> " + a1.equals(i1));
+
+Вывод: true
+Объяснение: Метод equals() сравнивает значения, и поскольку a1 (Integer) имеет значение 128, а i1 (int) равно 128, результат будет true.
+
+
+System.out.println("b1.equals(i1) -> " + b1.equals(i1));
+
+Вывод: true
+Объяснение: Аналогично предыдущему случаю, значение b1 также равно 128, и b1.equals(i1) вернет true.
+
+System.out.println("a1.equals(b1) -> " + a1.equals(b1));
+
+Вывод: true
+Объяснение: Оба Integer (a1 и b1) имеют одинаковое значение 128, поэтому сравнение через метод equals() даст true.
+
+System.out.println("a2==i2 " + (a2 == i2));
+
+Вывод: true
+Объяснение: Автоупаковка a2 в Integer происходит и сравнение с i2 (int) возвращает true.
+System.out.println("b2==i2 " + (b2 == i2));
+
+Вывод: true
+Объяснение: Аналогично предыдущему — b2 и i2 равны, и следовательно это true.
+System.out.println("a2==b2 " + (a2 == b2));
+
+Вывод: true
+Объяснение: Оба Integer (a2 и b2) ссылаются на одно и то же кэшированное значение 127. Следовательно, ссылки совпадают.
+
+System.out.println("a2.equals(i2) -> " + a2.equals(i2));
+
+Вывод: true
+Объяснение: Метод equals() возвращает true, поскольку значения равны
+
+System.out.println("b2.equals(i2) -> " + b2.equals(i2));
+
+Вывод: true
+Объяснение: Аналогично — значение b2 равно 127, что также равняется i2.
+
+System.out.println("a2.equals(b2) -> " + a2.equals(b2));
+
+Вывод: true
+Объяснение: Оба объекта Integer ссылаются на одно и то же кэшированное значение 127, поэтому equals() вернет true.
+
+
+
+IntegerCache — это внутренний класс в классе Integer, который кэширует экземпляры Integer для значений в диапазоне от -128 до 127. Это позволяет:
+
+Экономить память, так как нет необходимости создавать новые экземпляры для часто используемых значений
